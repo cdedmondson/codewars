@@ -1,3 +1,36 @@
+// 6kyu Sum of Digits / Digital Root
+function digital_root(n) {
+  // 1. Check if paramter is a number
+    // If not return 
+  if(typeof n != 'number')
+    return `${n} is not a number!`
+  // 2. If number <= 9 return 
+    if(n <= 9)
+      return n
+  // 3. Break number down into digits
+  let digits = Array.from(n.toString(), Number);
+  let sum = 0;
+  let counter = 0;
+  // 4. Iterate over each digit adding the sum
+    // If the sum <= 9 return
+    // Else store result and continue from step 3
+  do{
+    if(counter !== 1){
+  for(let digit of digits){
+    sum += digit;
+  }
+      ++counter;
+    }else{
+      digits = Array.from(sum.toString(), Number);
+      sum = 0;
+      for(let digit of digits){
+        sum += digit;
+      }
+    }
+    }while(!(sum <= 9));
+  return sum;
+}
+
 // 6kyu Multiples of 3 or 5
 function solution(number) {
   let sum = 0;
