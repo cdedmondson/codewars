@@ -1,3 +1,30 @@
+// 6kyu Convert string to camel case
+function toCamelCase(str){
+  let result = '';
+  let previousCharacterWasNotALetter = false;
+  let startIndex = 0;
+
+  if(typeof str !== 'string' || str ==='')
+    return '';
+  
+  if(str[0] === str[0].toUpperCase()){
+      result += str[0];
+      startIndex = 1;
+    }
+  
+  for(let i = startIndex; i < str.length; i++){
+      if(str[i] === '_' || str[i] === '-'){
+        result += str[i + 1].toUpperCase();
+        previousCharacterWasNotALetter = true;
+      }else if(previousCharacterWasNotALetter){
+        previousCharacterWasNotALetter = false;
+      }else{
+        result += str[i].toLowerCase();
+      }
+  }
+  return result;
+}
+
 // 6kyu Sum of Digits / Digital Root
 function digital_root(n) {
   // 1. Check if paramter is a number
