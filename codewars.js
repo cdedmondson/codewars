@@ -1,17 +1,17 @@
 // 5kyu Moving Zeros to the end
 var moveZeros = function (arr) {
-  const zeroes = [];
+  const zeros = [];
   const result = [];
   if(arr.length === 0)
     return [];
   for(const character of arr){
     if (character === 0){
-      zeroes.push(character);
+      zeros.push(character);
     }else{
       result.push(character);
     }
   }
-  return [...result, ...zeroes];
+  return [...result, ...zeros];
 }
 
 // 6kyu Convert string to camel case
