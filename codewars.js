@@ -1,3 +1,28 @@
+// 5kyu The Hashtag Generator
+function generateHashtag (str) {
+  let result = '';
+  
+  if(str.trim().length === 0 || typeof str !== 'string')
+    return false;
+
+  str = str.trim().toLowerCase();
+
+  let wordsArr = str.split(' ');
+  for(const [index, word] of wordsArr.entries()){
+    if(word !== ''){
+    if(index === 0){
+      result = '#' + word[0].toUpperCase() + word.slice(1,word.length);
+    }else{
+      result += word[0].toUpperCase()  + word.slice(1,word.length);
+    }
+    }
+  }
+  if(result.length > 140)
+    return false
+  
+    return result;
+}
+
 // 5kyu Moving Zeros to the end
 var moveZeros = function (arr) {
   const zeros = [];
