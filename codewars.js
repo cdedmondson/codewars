@@ -1,3 +1,21 @@
+// 6kyu Which are in?
+function inArray(array1,array2){
+  let result = [];
+
+  if(array1.length === 0 || array2.length === 0)
+    return []
+  for(const wordArr1 of array1){
+    for(const wordArr2 of array2){
+      if(wordArr2.includes(wordArr1)){
+        result.push(wordArr1);
+        break;
+      }
+        
+    }
+  }
+  return result.sort();
+}
+
 // 5kyu The Hashtag Generator
 function generateHashtag (str) {
   let result = '';
