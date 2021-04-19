@@ -1,3 +1,12 @@
+// 5kyu Extract the domain name from a URL
+function domainName(url){
+  if(typeof url !== 'string')
+    return '';
+  let filteredURL = url.replace(/(((http|https):\/\/)|www\.)/g, '');
+  let domainName = filteredURL.split('.');
+  return domainName[0];
+}
+
 // 6kyu Which are in?
 function inArray(array1,array2){
   let result = [];
