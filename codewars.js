@@ -1,3 +1,32 @@
+//5kyu String incrementer
+function incrementString(strng) {
+  if (typeof strng !== "string") {
+    return "";
+  }
+
+  let numbers = "",
+    letters = "",
+    numberLength = 0;
+  let regex = /\d+/g;
+  numbers = strng.match(regex);
+  if (numbers === null) return strng + "1";
+  numbers = numbers[0];
+  letters = strng.replace(numbers, "");
+  numberLength = numbers.length;
+  if (Number(numbers.slice(-1)) <= 8)
+    return (
+      letters +
+      numbers.slice(0, numberLength - 1) +
+      String(Number(numbers.slice(-1)) + 1)
+    );
+  if (String(Number(numbers) + 1).length < numberLength) {
+    let difference = numberLength - String(Number(numbers) + 1).length;
+    return letters + "0".repeat(difference) + String(Number(numbers) + 1);
+  }
+
+  return letters + String(Number(numbers) + 1);
+}
+
 // 5kyu Extract the domain name from a URL
 function domainName(url){
   if(typeof url !== 'string')
